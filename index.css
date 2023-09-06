@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap");
+
+:root {
+    --first-color: hsl(64, 100%, 49%);
+    --white-color: #fff;
+    --black-color: #000;
+    --form-color: #d6daf3;
+    --body-font: "Poppins", sans-serif;
+    --normal-font-size: 0.938rem;
+    --tiny-font-size: 0.563rem;
+}
+
+@media screen and (min-width: 968px) {
+    :root {
+        --normal-font-size: 1rem;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--white-color);
+}
+
+.form {
+    margin: 0 1.5rem;
+    padding: 4.5rem 2rem 2rem;
+    border: 2px solid var(--black-color);
+    box-shadow: 7px 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--form-color);
+}
+
+.form-content {
+    display: grid;
+    row-gap: 1.5rem;
+}
+
+.form-box {
+    width: 300px;
+    height: 60px;
+    position: relative;
+}
+
+.form-input,
+.form-label,
+.form-submit {
+    border: 0;
+    outline: none;
+    font-size: var(--normal-font-size);
+    font-family: var(--body-font);
+}
+
+.form-shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--black-color);
+}
+
+.form-input {
+    position: absolute;
+    border: 2.5px solid var(--black-color);
+    background-color: var(--white-color);
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    padding: 18px;
+    transition: transform 0.3s;
+}
+
+.form__input::placeholder {
+    transition: opacity 0.5s;
+}
+
+.form-label {
+    z-index: 100;
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    font-size: var(--tiny-font-size);
+    font-weight: 600;
+    transition: 0.2s;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.form-button {
+    justify-self: flex-end;
+    background-color: var(--black-color);
+}
+
+.form-submit {
+    padding: 0.875rem 1.5rem;
+    color: var(--black-color);
+    background-color: var(--first-color);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.form-submit:hover {
+    transform: translate(-6px, -6px);
+}
+
+.form-input:focus::placeholder {
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.form-input:focus,
+.form-input:not(:placeholder-shown).form-input:not(:focus) {
+    transform: translate(-8px, -8px);
+    padding: 28px 18px 18px;
+    animation: input-animation 0.5s;
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown).form-input:not(:focus) + .form-label {
+    opacity: 1;
+    top: 2px;
+    left: 12px;
+    transition: 0.3s;
+}
+
+@keyframes input-animation {
+    0% {
+        transform: translate(0);
+    }
+    40% {
+        transform: translate(-9px, -9px);
+    }
+    60% {
+        transform: translate(-7px, -7px);
+    }
+}
+
+@media screen and (max-width: 340px) {
+    body {
+        display: grid;
+    }
+
+    .form-content,
+    .form-box {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 968px) {
+    .form-content {
+        zoom: 1.1;
+    }
+}
