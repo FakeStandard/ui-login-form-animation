@@ -7,5 +7,5 @@
 ![COVER](./preview.png)
 
 ### Reference
-[YT - Bedimcode](https://github.com/bedimcode/modern-input-field)
+[YT - Bedimcode](https://www.youtube.com/watch?v=Ygi-BDNwxPk)
 
